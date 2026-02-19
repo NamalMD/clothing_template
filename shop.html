@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Shop Kinetic Premium Streetwear. Explore our latest collection of t-shirts, accessories, and essentials.">
+    <title>Shop | Kinetic Streetwear</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kinetic-gray-blue': '#F0F4F8',
+                        'kinetic-teal-dark': '#2A4D5A',
+                        'kinetic-orange': '#FF5500',
+                        'kinetic-orange-dark': '#CC4400',
+                        'kinetic-black': '#000000',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-kinetic-gray-blue text-kinetic-black font-sans antialiased">
+
+    <!-- Search Overlay -->
+    <div id="search-overlay"
+        class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[70] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <button id="close-search-btn"
+            class="absolute top-8 right-8 text-black hover:text-kinetic-orange transition-colors">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="w-full max-w-3xl px-8">
+            <input id="search-input-field" type="text"
+                class="w-full bg-transparent border-b-4 border-kinetic-black text-3xl md:text-5xl font-black py-4 focus:outline-none focus:border-kinetic-orange placeholder-gray-300 uppercase tracking-widest"
+                placeholder="TYPE TO SEARCH...">
+            <p class="mt-4 text-gray-500 text-sm uppercase tracking-wide">Press Enter to Search</p>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 transform translate-x-full transition-transform duration-300 md:hidden">
+        <a href="index.html"
+            class="text-2xl font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors">Home</a>
+        <a href="shop.html"
+            class="text-2xl font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors text-kinetic-orange">Shop</a>
+        <a href="collection.html"
+            class="text-2xl font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors">Collection</a>
+        <a href="about.html"
+            class="text-2xl font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors">About</a>
+        <a href="contact.html"
+            class="text-2xl font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors">Contact</a>
+        <button id="close-mobile-menu" class="absolute top-8 right-8 text-black">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header id="navbar"
+        class="fixed top-0 w-full z-50 transition-all duration-300 py-4 px-8 flex justify-between items-center bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="logo">
+            <a href="index.html">
+                <h1 class="text-3xl font-black tracking-tighter uppercase cursor-pointer">Kinetic<span
+                        class="text-kinetic-orange">.</span></h1>
+            </a>
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex space-x-8">
+            <a href="index.html"
+                class="text-sm font-black uppercase tracking-widest hover:text-kinetic-orange-dark transition-colors relative group">Home
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-kinetic-orange-dark transition-all group-hover:w-full"></span>
+            </a>
+            <a href="shop.html"
+                class="text-sm font-black uppercase tracking-widest text-kinetic-orange-dark transition-colors relative group">Shop
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-kinetic-orange-dark transition-all"></span>
+            </a>
+            <a href="collection.html"
+                class="text-sm font-black uppercase tracking-widest hover:text-kinetic-orange-dark transition-colors relative group">Collection
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-kinetic-orange-dark transition-all group-hover:w-full"></span>
+            </a>
+            <a href="about.html"
+                class="text-sm font-black uppercase tracking-widest hover:text-kinetic-orange-dark transition-colors relative group">About
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-kinetic-orange-dark transition-all group-hover:w-full"></span>
+            </a>
+            <a href="contact.html"
+                class="text-sm font-black uppercase tracking-widest hover:text-kinetic-orange-dark transition-colors relative group">Contact
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-kinetic-orange-dark transition-all group-hover:w-full"></span>
+            </a>
+        </nav>
+
+        <div class="flex items-center space-x-6">
+            <button id="search-btn" class="hover:scale-110 hover:text-kinetic-orange-dark transition-all"><svg
+                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg></button>
+            <a href="cart.html" class="hover:scale-110 hover:text-kinetic-orange-dark transition-all"><svg
+                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                </svg></a>
+            <a href="profile.html" class="hover:scale-110 hover:text-kinetic-orange-dark transition-all"><svg
+                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg></a>
+            <button id="mobile-menu-btn" class="md:hidden hover:text-kinetic-orange transition-colors"><svg
+                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg></button>
+        </div>
+    </header>
+
+    <div class="pt-32 pb-20 px-8 container mx-auto">
+        <!-- Filters (Simplified) -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <button class="px-6 py-2 bg-kinetic-black text-white font-bold rounded-full">All</button>
+            <button class="px-6 py-2 bg-white text-gray-500 font-bold rounded-full hover:bg-gray-100">T-Shirts</button>
+            <button class="px-6 py-2 bg-white text-gray-500 font-bold rounded-full hover:bg-gray-100">Hoodies</button>
+            <button
+                class="px-6 py-2 bg-white text-gray-500 font-bold rounded-full hover:bg-gray-100">Accessories</button>
+            <button class="px-6 py-2 bg-white text-gray-500 font-bold rounded-full hover:bg-gray-100">Sale</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Product Item 1 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all group">
+                <div class="relative overflow-hidden aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=800"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <button
+                        class="absolute bottom-4 right-4 bg-white text-black p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-kinetic-orange hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-1">Urban Graphic Tee</h3>
+                    <p class="text-gray-500 text-sm mb-2">Black / Cotton</p>
+                    <span class="font-bold text-kinetic-teal-dark">$29.99</span>
+                </div>
+            </div>
+            <!-- Product Item 2 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all group">
+                <div class="relative overflow-hidden aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <button
+                        class="absolute bottom-4 right-4 bg-white text-black p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-kinetic-orange hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-1">Oversized Crew</h3>
+                    <p class="text-gray-500 text-sm mb-2">Teal / Heavyweight</p>
+                    <span class="font-bold text-kinetic-teal-dark">$34.99</span>
+                </div>
+            </div>
+            <!-- More products would go here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

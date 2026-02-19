@@ -1,0 +1,113 @@
+/* Custom styles and animations */
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F0F4F8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2A4D5A;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FF5500;
+}
+
+/* Slow Pulse Animation */
+@keyframes pulse-slow {
+
+    0%,
+    100% {
+        opacity: 0.1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.2;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 8s infinite ease-in-out;
+}
+
+/* Reveal Animations Classes (Triggered by JS) */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-zoom {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.active-reveal {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Navbar Scrolled State */
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+/* Utility Class Delays */
+.delay-100 {
+    transition-delay: 100ms;
+}
+
+.delay-200 {
+    transition-delay: 200ms;
+}
+
+.delay-300 {
+    transition-delay: 300ms;
+}
+
+/* Image Placeholders for missing assets */
+img {
+    background: linear-gradient(135deg, #F0F4F8 0%, #FF5500 100%);
+    position: relative;
+    min-height: 100px;
+    display: block;
+}
+
+img:not([src]),
+img[src=""] {
+    background: #2A4D5A;
+}
+
+/* Hero Image Specific container shadow */
+.hero-img-container {
+    box-shadow: 0 50px 100px -20px rgba(42, 77, 90, 0.3), 0 30px 60px -30px rgba(0, 0, 0, 0.3);
+}

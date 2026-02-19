@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Kinetic - Premium Streetwear. Experience the perfect fusion of kinetic design and premium comfort. Shop our latest collection of urban graphics and essentials.">
+    <meta name="keywords" content="streetwear, urban clothing, kinetic fashion, premium t-shirts, japanese cotton">
+    <meta name="author" content="Kinetic Brand">
+    <title>Kinetic | Premium Streetwear</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kinetic-gray-blue': '#F0F4F8',
+                        'kinetic-teal-dark': '#2A4D5A',
+                        'kinetic-orange': '#FF5500',
+                        'kinetic-orange-dark': '#CC4400',
+                        'kinetic-black': '#000000',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-kinetic-gray-blue text-kinetic-black font-sans antialiased overflow-x-hidden">
+
+    <!-- Search Overlay -->
+    <div id="search-overlay"
+        class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[70] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <button id="close-search-btn"
+            class="absolute top-8 right-8 text-black hover:text-kinetic-orange transition-colors">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="w-full max-w-3xl px-8">
+            <input id="search-input-field" type="text"
+                class="w-full bg-transparent border-b-4 border-kinetic-black text-3xl md:text-5xl font-black py-4 focus:outline-none focus:border-kinetic-orange placeholder-gray-300 uppercase tracking-widest"
+                placeholder="TYPE TO SEARCH...">
+            <p class="mt-4 text-gray-500 text-sm uppercase tracking-wide">Press Enter to Search</p>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 transform translate-x-full transition-transform duration-300 md:hidden">
+        <a href="index.html"
+            class="text-2xl font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors">Home</a>
+        <a href="shop.html"
+            class="text-2xl font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors">Shop</a>
+        <a href="collection.html"
+            class="text-2xl font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors">Collection</a>
+        <a href="about.html"
+            class="text-2xl font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors">About</a>
+        <a href="contact.html"
+            class="text-2xl font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors">Contact</a>
+        <button id="close-mobile-menu" class="absolute top-8 right-8 text-black">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header id="navbar"
+        class="fixed top-0 w-full z-50 transition-all duration-300 py-4 px-8 flex justify-between items-center bg-transparent">
+        <div class="logo">
+            <h1 class="text-3xl font-black tracking-tighter uppercase cursor-pointer">Kinetic<span
+                    class="text-kinetic-orange">.</span></h1>
+        </div>
+        <nav class="hidden md:flex space-x-8">
+            <a href="index.html"
+                class="text-sm font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors relative group">Home
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-kinetic-orange transition-all group-hover:w-full"></span>
+            </a>
+            <a href="shop.html"
+                class="text-sm font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors relative group">Shop
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-kinetic-orange transition-all group-hover:w-full"></span>
+            </a>
+            <a href="collection.html"
+                class="text-sm font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors relative group">Collection
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-kinetic-orange transition-all group-hover:w-full"></span>
+            </a>
+            <a href="about.html"
+                class="text-sm font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors relative group">About
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-kinetic-orange transition-all group-hover:w-full"></span>
+            </a>
+            <a href="contact.html"
+                class="text-sm font-black uppercase tracking-widest hover:text-kinetic-orange transition-colors relative group">Contact
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-kinetic-orange transition-all group-hover:w-full"></span>
+            </a>
+        </nav>
+        <div class="flex items-center space-x-6">
+            <button id="search-btn" class="hover:scale-110 hover:text-kinetic-orange-dark transition-all"><svg
+                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg></button>
+
+            <a href="cart.html" class="hover:scale-110 hover:text-kinetic-orange-dark transition-all"><svg
+                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                </svg></a>
+
+            <a href="profile.html" class="hover:scale-110 hover:text-kinetic-orange-dark transition-all"><svg
+                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg></a>
+
+            <button id="mobile-menu-btn" class="md:hidden hover:text-kinetic-orange transition-colors"><svg
+                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg></button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+            <h1
+                class="text-[20vw] font-black text-kinetic-teal-dark opacity-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 whitespace-nowrap animate-pulse-slow">
+                KINETIC</h1>
+        </div>
+
+        <div class="container mx-auto px-8 flex flex-col md:flex-row items-center z-10">
+            <div class="w-full md:w-1/2 flex flex-col items-start space-y-6 reveal-left">
+                <span class="text-kinetic-orange font-bold tracking-widest uppercase">Premium Streetwear</span>
+                <h2 class="text-5xl md:text-9xl font-black leading-none text-kinetic-black">
+                    MOVE<br>FORWARD</h2>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-lg">Engineered for the urban explorer. Experience the
+                    perfect fusion of kinetic design and premium comfort.</p>
+                <div class="flex space-x-4 pt-4">
+                    <a href="shop.html"
+                        class="bg-kinetic-black text-white px-8 py-4 text-lg font-bold rounded-none hover:bg-kinetic-orange-dark transition-colors transform hover:-translate-y-1 shadow-lg">Shop
+                        Now</a>
+                    <a href="collection.html"
+                        class="border-2 border-kinetic-black px-8 py-4 text-lg font-bold rounded-none hover:bg-kinetic-black hover:text-white transition-all transform hover:-translate-y-1">View
+                        Lookbook</a>
+                </div>
+            </div>
+
+            <!-- Hero Section Right Side (Design Update) -->
+            <div
+                class="w-full md:w-1/2 mt-10 md:mt-20 relative flex justify-center items-center reveal-right pl-0 md:pl-20">
+
+                <!-- Carousel Layout Grid -->
+                <!-- The image container is slightly shifted left to make room for numbers on the right -->
+                <div class="relative w-full max-w-lg flex items-center">
+
+                    <!-- Image Wrapper -->
+                    <div class="relative w-4/5 aspect-[3/4] z-10">
+                        <img id="hero-image"
+                            src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=1600&auto=format&fit=crop"
+                            alt="Kinetic T-Shirt"
+                            class="w-full h-full object-cover rounded-tr-[50px] shadow-2xl transition-opacity duration-500 opacity-100">
+
+                        <!-- Design Element: Black Nav Block (Bottom Right of Image) -->
+                        <div
+                            class="absolute -bottom-8 -right-8 w-40 h-20 bg-black text-white flex items-center justify-between px-8 rounded-lg shadow-2xl z-20">
+                            <button id="hero-prev"
+                                class="focus:outline-none hover:text-kinetic-orange transition-colors transform active:scale-90"
+                                aria-label="Previous Slide">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <button id="hero-next"
+                                class="focus:outline-none hover:text-kinetic-orange transition-colors transform active:scale-90"
+                                aria-label="Next Slide">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Vertical Indicators (Right Side) -->
+                    <div class="w-1/5 flex flex-col items-center space-y-8 pl-8">
+                        <button
+                            class="hero-indicator text-5xl font-black text-kinetic-black transition-all duration-300 focus:outline-none"
+                            data-index="0" aria-label="Go to slide 1">01</button>
+                        <button
+                            class="hero-indicator text-sm font-bold text-gray-400 hover:text-kinetic-black transition-all duration-300 focus:outline-none"
+                            data-index="1" aria-label="Go to slide 2">02</button>
+                        <button
+                            class="hero-indicator text-sm font-bold text-gray-400 hover:text-kinetic-black transition-all duration-300 focus:outline-none"
+                            data-index="2" aria-label="Go to slide 3">03</button>
+                        <button
+                            class="hero-indicator text-sm font-bold text-gray-400 hover:text-kinetic-black transition-all duration-300 focus:outline-none"
+                            data-index="3" aria-label="Go to slide 4">04</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Tabs -->
+        <div
+            class="absolute bottom-0 left-0 w-full bg-white bg-opacity-80 backdrop-blur-md py-4 border-t border-gray-200 hidden md:flex justify-around text-sm font-semibold uppercase tracking-wider text-gray-500">
+            <span>Free Global Shipping on Orders Over $150</span>
+            <span>Premium Japanese Cotton</span>
+            <span>Designed in Tokyo</span>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-20 px-8 bg-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="group relative w-full md:w-1/3 h-[500px] overflow-hidden rounded-2xl cursor-pointer reveal-up delay-100">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a302d2752424?q=80&w=800"
+                        alt="New Arrivals"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-8 left-8 text-white">
+                        <h3 class="text-3xl font-bold mb-2">New Arrivals</h3>
+                        <span class="inline-block border-b-2 border-white pb-1 group-hover:pb-2 transition-all">Shop
+                            Collection</span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="group relative w-full md:w-1/3 h-[500px] overflow-hidden rounded-2xl cursor-pointer reveal-up delay-200">
+                    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=800" alt="Accessories"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-8 left-8 text-white">
+                        <h3 class="text-3xl font-bold mb-2">Accessories</h3>
+                        <span class="inline-block border-b-2 border-white pb-1 group-hover:pb-2 transition-all">View
+                            All</span>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="group relative w-full md:w-1/3 h-[500px] overflow-hidden rounded-2xl cursor-pointer reveal-up delay-300">
+                    <img src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=800" alt="Streetwear"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-8 left-8 text-white">
+                        <h3 class="text-3xl font-bold mb-2">Streetwear</h3>
+                        <span
+                            class="inline-block border-b-2 border-white pb-1 group-hover:pb-2 transition-all">Explore</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section id="shop" class="py-20 px-8 bg-kinetic-gray-blue">
+        <div class="container mx-auto">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-kinetic-orange font-bold tracking-widest uppercase">Essentials</span>
+                <h2 class="text-5xl font-black mt-2">OUR PRODUCTS</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Card 1 -->
+                <div
+                    class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group reveal-up">
+                    <div class="relative overflow-hidden h-96">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=800" alt="Product"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-black text-white px-3 py-1 text-xs font-bold uppercase">
+                            New</div>
+                        <button
+                            class="absolute bottom-4 right-4 bg-white text-black p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-kinetic-orange hover:text-white"
+                            aria-label="Add to cart">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Urban Graphic Tee</h4>
+                        <p class="text-gray-500 text-sm mb-3">Heavyweight Cotton</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-kinetic-teal-dark">$29.99</span>
+                            <div class="flex space-x-2">
+                                <div class="w-4 h-4 rounded-full bg-black border border-gray-300 cursor-pointer"></div>
+                                <div class="w-4 h-4 rounded-full bg-white border border-gray-300 cursor-pointer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div
+                    class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group reveal-up delay-100">
+                    <div class="relative overflow-hidden h-96">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800" alt="Product"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Oversized Crew Neck</h4>
+                        <p class="text-gray-500 text-sm mb-3">Relaxed Fit</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-kinetic-teal-dark">$34.99</span>
+                            <div class="flex space-x-2">
+                                <div
+                                    class="w-4 h-4 rounded-full bg-kinetic-teal-dark border border-gray-300 cursor-pointer">
+                                </div>
+                                <div class="w-4 h-4 rounded-full bg-gray-400 border border-gray-300 cursor-pointer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div
+                    class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group reveal-up delay-200">
+                    <div class="relative overflow-hidden h-96">
+                        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800" alt="Product"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 text-xs font-bold uppercase">
+                            Sale</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Cyber-Punk Print</h4>
+                        <p class="text-gray-500 text-sm mb-3">Limited Edition</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-kinetic-teal-dark">$45.00</span>
+                            <div class="flex space-x-2">
+                                <div class="w-4 h-4 rounded-full bg-white border border-gray-300 cursor-pointer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div
+                    class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group reveal-up">
+                    <div class="relative overflow-hidden h-96">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800" alt="Product"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Minimalist V-Neck</h4>
+                        <p class="text-gray-500 text-sm mb-3">Organic Cotton</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-kinetic-teal-dark">$24.99</span>
+                            <div class="flex space-x-2">
+                                <div class="w-4 h-4 rounded-full bg-gray-800 border border-gray-300 cursor-pointer">
+                                </div>
+                                <div class="w-4 h-4 rounded-full bg-gray-200 border border-gray-300 cursor-pointer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div
+                    class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group reveal-up delay-100">
+                    <div class="relative overflow-hidden h-96">
+                        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800" alt="Product"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Long Sleeve Tech</h4>
+                        <p class="text-gray-500 text-sm mb-3">Moisture Wicking</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-kinetic-teal-dark">$49.99</span>
+                            <div class="flex space-x-2">
+                                <div class="w-4 h-4 rounded-full bg-black border border-gray-300 cursor-pointer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div
+                    class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group reveal-up delay-200">
+                    <div class="relative overflow-hidden h-96">
+                        <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=800" alt="Product"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Vintage Wash Tee</h4>
+                        <p class="text-gray-500 text-sm mb-3">Distressed Look</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-kinetic-teal-dark">$32.00</span>
+                            <div class="flex space-x-2">
+                                <div class="w-4 h-4 rounded-full bg-blue-900 border border-gray-300 cursor-pointer">
+                                </div>
+                                <div class="w-4 h-4 rounded-full bg-red-900 border border-gray-300 cursor-pointer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button
+                    class="bg-transparent border-2 border-kinetic-black text-kinetic-black px-10 py-3 font-bold hover:bg-kinetic-black hover:text-white transition-colors">View
+                    All Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <section id="about" class="min-h-screen flex flex-col">
+        <!-- Feature 1 -->
+        <div
+            class="flex flex-col md:flex-row items-center bg-gradient-to-r from-gray-900 to-kinetic-teal-dark text-white overflow-hidden">
+            <div class="w-full md:w-1/2 p-20 reveal-left">
+                <h2 class="text-6xl font-black mb-4">STREET<br>CULTURE</h2>
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">Born from the concrete jungle, our designs reflect
+                    the chaotic harmony of urban life. Bold prints, aggressive cuts, and heavy fabrics that stand out in
+                    the crowd.</p>
+                <button
+                    class="text-white border-b-2 border-white pb-2 hover:text-kinetic-orange hover:border-kinetic-orange transition-colors">Read
+                    Our Story</button>
+            </div>
+            <div class="w-full md:w-1/2 h-[600px] reveal-right bg-gray-800">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800" alt="Street Culture"
+                    class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700">
+            </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="flex flex-col md:flex-row-reverse items-center bg-white text-black overflow-hidden">
+            <div class="w-full md:w-1/2 p-20 reveal-right">
+                <h2 class="text-6xl font-black mb-4">PREMIUM<br>FINISH</h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">We focus on the details. From heavy-duty collars
+                    to soft-touch prints, every Kinetic t-shirt is built to feel as good as it looks.</p>
+                <button
+                    class="text-black border-b-2 border-black pb-2 hover:text-kinetic-orange hover:border-kinetic-orange transition-colors">Quality
+                    Guide</button>
+            </div>
+            <div class="w-full md:w-1/2 h-[600px] reveal-left bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800" alt="Quality"
+                    class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Banner -->
+    <section id="collection"
+        class="relative h-[80vh] flex items-center justify-center bg-kinetic-black overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1600" alt="2026 Collection"
+            class="absolute inset-0 w-full h-full object-cover opacity-60">
+        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+        <div class="relative z-10 text-center text-white p-8 border-4 border-white/20 backdrop-blur-sm reveal-zoom">
+            <span class="block text-xl tracking-[0.5em] mb-4 text-kinetic-orange">LIMITED EDITION</span>
+            <h2 class="text-7xl md:text-9xl font-black uppercase mb-6">SPRING<br>2026</h2>
+            <button
+                class="bg-white text-black px-12 py-4 font-bold text-xl hover:bg-kinetic-orange hover:text-white transition-colors">Explore
+                Drop</button>
+        </div>
+        <div class="absolute top-0 right-0 p-8 w-24 h-24 border-b-4 border-l-4 border-kinetic-orange"></div>
+        <div class="absolute bottom-0 left-0 p-8 w-24 h-24 border-t-4 border-r-4 border-kinetic-orange"></div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 px-8 bg-kinetic-gray-blue">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">What People Say</h2>
+            <div class="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md w-full md:w-1/3 flex flex-col justify-between reveal-up">
+                    <div>
+                        <div class="text-kinetic-orange text-2xl mb-4">★★★★★</div>
+                        <p class="text-gray-600 italic mb-6">"Hands down the best fitting t-shirt I've ever owned. The
+                            fabric feels premium and the cut is perfect for an athletic build."</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=Alex+M&background=random" alt="Avatar">
+                        </div>
+                        <div>
+                            <p class="font-bold">Alex M.</p>
+                            <p class="text-xs text-gray-500">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-md w-full md:w-1/3 flex flex-col justify-between reveal-up delay-100">
+                    <div>
+                        <div class="text-kinetic-orange text-2xl mb-4">★★★★★</div>
+                        <p class="text-gray-600 italic mb-6">"The design is insane. I get compliments every time I wear
+                            the Cyber-Punk tee. Fast shipping too!"</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+K&background=random" alt="Avatar">
+                        </div>
+                        <div>
+                            <p class="font-bold">Sarah K.</p>
+                            <p class="text-xs text-gray-500">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-md w-full md:w-1/3 flex flex-col justify-between reveal-up delay-200">
+                    <div>
+                        <div class="text-kinetic-orange text-2xl mb-4">★★★★★</div>
+                        <p class="text-gray-600 italic mb-6">"Finally a brand that understands streetwear durability.
+                            These shirts don't shrink or fade after one wash."</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=Jason+D&background=random" alt="Avatar">
+                        </div>
+                        <div>
+                            <p class="font-bold">Jason D.</p>
+                            <p class="text-xs text-gray-500">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-kinetic-black text-white pt-20 pb-10 px-8">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <h2 class="text-3xl font-black mb-6">Kinetic<span class="text-kinetic-orange">.</span></h2>
+                <p class="text-gray-400">Redefining urban movement through premium design and fabric technology.</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-6">Shop</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="shop.html" class="hover:text-white transition-colors">New Arrivals</a></li>
+                    <li><a href="shop.html" class="hover:text-white transition-colors">Accessories</a></li>
+                    <li><a href="shop.html" class="hover:text-white transition-colors">Sale</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-6">Support</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Shipping & Returns</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Size Guide</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-6">Newsletter</h4>
+                <p class="text-gray-400 mb-4">Subscribe for exclusive drops and offers.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your email"
+                        class="bg-gray-800 text-white px-4 py-3 w-full focus:outline-none focus:ring-1 focus:ring-kinetic-orange">
+                    <button
+                        class="bg-kinetic-orange px-6 py-3 font-bold hover:bg-white hover:text-black transition-colors">GO</button>
+                </div>
+            </div>
+        </div>
+        <div
+            class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+            <p>&copy; 2026 Kinetic Brand. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="hover:text-white transition-colors">Twitter</a>
+                <a href="#" class="hover:text-white transition-colors">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
